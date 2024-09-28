@@ -9,7 +9,7 @@ This is my first spring project which demonstrate CRUD operations on a Table
 
 **Database:** The database need to be created in the MySQL Workbench and then create a table.I created the database called student_db and table as student
 
-    **Attributes in Table:**
+   **Attributes in Table:**
 
       -> id (P_key)
 
