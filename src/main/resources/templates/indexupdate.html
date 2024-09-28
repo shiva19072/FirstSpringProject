@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      .cont {
+        font-family: Verdana;
+        align-content: center;
+      }
+      html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: url("/images/classroombg.jpg");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+    </style>
+  </head>
+  <body>
+    <div class="alert alert-warning m-0" role="alert" id="message" style="display: none;"></div>
+      
+    </div>
+    <div class="container px-2 py-0 ">
+    <div class="container m-2 py-3 px-4 cont border border-1 border-dark rounded-2 bg-light">
+      <h2 style="text-align: center;">Update Details</h2>
+      <form class="row g-3 row-col-2" onsubmit="handleSubmit(event)">
+
+        <div class="col-12 row mt-3">
+        <div class="col-6">
+          <label for="id" class="form-label">ID :</label>
+          <input type="number" class="form-control" id="id" min="1" required>
+        </div>
+        <div class="col-6 mt-4 p-2">     
+          <button type="button" class="btn btn-primary"  onclick="fetchStudentDetails(event)">Fetch Data</button>
+        </div>
+      </div> 
+
+        <div class="col-12">
+          <label for="name" class="form-label">Name :</label>
+          <input type="text" class="form-control" id="name" placeholder="Full Name">
+        </div>
+
+        <div class="col-12">
+          <label for="college" class="form-label">College :</label>
+          <input type="text" class="form-control" id="college" placeholder="Institution Name">
+        </div>
+
+        <div class="col-12">
+          <label for="roll" class="form-label">Roll Number :</label>
+          <input type="number" class="form-control" id="roll" placeholder="Enter 10 Digit Roll Number">
+        </div>
+
+        <div class="col-6">
+          <label for="qualification" class="form-label">Qualification</label>
+          <select id="qualification" class="form-select">
+            <option selected>-Select-</option>
+            <option value="Diploma">Diploma</option>
+            <option value="B.Tech">B.Tech</option>
+            <option value="M.Tech">M.Tech</option>
+            <option value="BSc">BSc</option>
+            <option value="MSc">MSc</option>
+            <option value="BCom">BCom</option>
+            <option value="BCA">BCA</option>
+          </select>
+        </div>
+
+        <div class="col-6">
+          <label for="year" class="form-label">Year :</label>
+          <input type="number" class="form-control" id="year" min="1900" max="2090">
+        </div>
+
+        <div class="col-12">
+          <label for="certificate" class="form-label">Certificate Number :</label>
+          <input type="text" class="form-control" id="certificate" placeholder="TGXXXXXXXX">
+        </div>
+
+        <div class="col-2">
+          <button type="submit" class="btn btn-success">Update</button>
+        </div>
+      
+      </form>
+    </div>   
+  </div>
+    <script>
+      function fetchStudentDetails(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        const studentId = document.getElementById('id').value;
+
+        // Send GET request to fetch the student data by ID
+        fetch(`/students/${studentId}`, {
+            method:'GET'
+        })
+        .then(response => {
+            if (response.ok) {
+                return response.json();
+            } else {
+                throw new Error('Student not found');
+            }
+        })
+        .then(student => {
+            // Populate the form fields with the student data
+            document.getElementById('name').value = student.name;
+            document.getElementById('college').value = student.college;
+            document.getElementById('roll').value = student.roll;
+            document.getElementById('qualification').value = student.qualification;
+            document.getElementById('year').value = student.year;
+            document.getElementById('certificate').value = student.certificate;
+        })
+        .catch(error => {
+            alert("Failed to retrieve student data: " + error.message);
+            console.error('Error:', error);
+        });
+      }
+
+
+
+      function updateStudentDetails(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    const studentId = document.getElementById('id').value;
+
+    // Create a student object from the form data
+    const updatedStudent = {
+        name: document.getElementById('name').value,
+        college: document.getElementById('college').value,
+        roll: document.getElementById('roll').value,
+        qualification: document.getElementById('qualification').value,
+        year: document.getElementById('year').value,
+        certificate: document.getElementById('certificate').value
+    };
+
+    // Send PUT request to update the student data
+    fetch(`/students/${studentId}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(updatedStudent) // Send the updated student object as JSON
+    })
+    .then(response => {
+        if (response.ok) {
+            alert("Student updated successfully!");
+            window.location.reload();
+        } else {
+            throw new Error('Failed to update student');
+        }
+    })
+    .catch(error => {
+        alert("Failed to update student data: " + error.message);
+        console.error('Error:', error);
+    });
+  }
+
+  function validateForm(){
+    const name = document.getElementById('name').value;
+    const college = document.getElementById('college').value;
+    const roll = document.getElementById('roll').value;
+    const qualification = document.getElementById('qualification').value;
+    const year = document.getElementById('year').value;
+    const certificate = document.getElementById('certificate').value;
+    const message=document.getElementById('message');
+    message.innerHTML="";
+    message.style.display="none";
+    if (name==="" || college===""||roll===""||qualification===""||year===""||certificate===""){
+          message.innerHTML="Fill all the details properly";
+          message.style.display = "block"; 
+          return false;
+    }
+    else if(roll.length!==10){
+      message.innerHTML="Enter Your 10 digit Roll Number Properly";
+      message.style.display = "block"; 
+      return false;
+    }
+    else if(year.length!==4){
+      message.innerHTML="Enter valid Year";
+      message.style.display = "block"; 
+      return false;
+    } 
+   else if(certificate.length!==10){
+      message.innerHTML="Enter Your 10 digit Certificate ID Properly";
+      message.style.display = "block"; 
+      return false;
+    }
+   
+    return true;
+  }
+
+
+  function handleSubmit(event) {
+            event.preventDefault();  // Prevent default form submission
+
+            // Validate the form
+            if (!validateForm()) {
+                // If not passes 
+                console.log("validation failed");
+            }
+            else{
+                // If validation passes, execute the submit logic
+                updateStudentDetails(event);
+            }
+        }
+    </script>
+  </body>
+</html>

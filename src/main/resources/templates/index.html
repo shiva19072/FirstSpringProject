@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Student Information</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+      html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+h5{
+  font-family: garamond;
+  font-weight: bolder;
+}
+h3{
+  font-family: verdana;
+  text-transform:uppercase;
+  font-style: italic;
+}
+h2{
+  font-family: Georgia;
+  text-transform:uppercase;
+}
+     
+      
+    </style>
+  </head>
+  <body>
+    <div class="container-fluid p-0">
+
+    <nav class="navbar fixed-top navbar-expand-lg bg-body-tertiary px-3 py-3" id="#navbar-example2" data-bs-theme="dark" >       
+     
+      <!--Logo-->
+        <a class="navbar-brand mx-2" href="#" id="#scrollHeading1"><h4>Spring Boot Project</h4></a>
+         
+        <!--Collapse for md sm screens-->
+          <button class="navbar-toggler p-2" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation" id="toggleButton" >
+           <!--<span class="navbar-toggler-icon"></span>--> 
+           <i class="bi bi-list" id="icon"></i>
+          </button>
+
+    <!--Collapse Target-->
+     <div class="collapse navbar-collapse bg-body-tertiary" id="navbarNavAltMarkup">
+        <!--List of items in navbar-->
+        <ul class="nav nav-underline navbar-nav ms-auto mb-2 mb-lg-0">
+          <!--Each item having scrollspy Ref-->
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading1">About Project</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading2">CRUD Operations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading3">Create</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading4">Retrieve</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading5">Update</a>
+          </li>   
+          <li class="nav-item">
+            <a class="nav-link" href="#scrollspyHeading6">Delete</a>
+          </li> 
+                   
+        </ul>  
+    </div>  
+      </nav>
+
+
+      <div class="container-fluid py-0 my-5 px-0" >
+        <div class="container m-4 p-4">
+
+        </div>
+    <!--scroll spy on this content -->
+    <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" class="scrollspy-example" tabindex="0">
+          <!--Profile Section-->
+          <div class="container-fluid aboutbg px-1 py-3 m-0 border border-1 border-dark" id="scrollspyHeading1">
+        
+
+
+            <div class="card">
+              <h2 class="card-header">About Project</h2>
+              <div class="card-body">
+
+                <h3 class="card-title my-2">Objective :</h3>
+                <p class="card-text lead">I developed a small Spring Boot project that performs CRUD operations (Create, Read, Update, Delete) on a table called student. The project is a simple web application designed to manage student records efficiently.
+                  This project mainly focuses on basic data manipulation operations which could be performed on table.This could be sample module in Spring
+                  developed to showcase and understand about the frondend and backend working</p>
+
+                  <h3 class="card-title my-2">Contents :</h3>
+                   <p class="card-text lead">This project includes the database setup,backend code for functionality and the frontend web pages to manipulate data 
+                    using the RESTful API connections to table in database.Understanding about the contents of the project is important in order to understand 
+                    the functionality of the the overall project. Here are the contents of this project: 
+                   </p>
+                    <div class="container m-1">
+                   <h5>Tools Used:</h5>
+                   <p class="lead">HTML, CSS, Bootstrap, Javascript, SpringToolSuite, Java, Mysql, Hibernate, Postman</p>
+
+                   <h5>Database:</h5>
+                   <p class="lead">The database need to be created in the MySQL Workbench and then create a table.I created the database called <b>student_db</b> and table 
+                    as <b>student</b>
+                   </p>
+                   <p class="m-2"><b>Attributes in Table:</b></p>
+                   <ul class="m-2 lead">
+                    <li>id (P_key)</li>
+                    <li>name</li>
+                    <li>college</li>
+                    <li>roll</li>
+                    <li>qualification</li>
+                    <li>year</li>
+                    <li>certificate</li>
+                   </ul>
+
+                   <h5>Backend:</h5>
+                   <p class="lead">I used Java language and Hibernate to develop code for backend functionality.The code is having a Model class,Controller class
+                    ,Service class,Repository interface,application file to run the Spring app. These are the java files in the project:
+                   </p>
+                   <p class="m-2"><b>Java Files in project:</b></p>
+                   <ul class="m-2 lead">
+                    <li>Student.java</li>
+                    <li>StudentController.java</li>
+                    <li>StudentService.java</li>
+                    <li>StudentModuleApplication.java</li>
+                    <li>StudentRepository.java</li>
+                   </ul>
+
+                   <h5>Frontend:</h5>
+                   <p class="lead">I used HTML,CSS,Bootstrap and javascript for front end development.The web pages codes are stored in the templates file 
+                    and the images are stored in the static file in project Folder.
+                   </p>
+                   <ul class="lead">
+                    <li><b>Images :</b> src/main/resources/static/images</li>
+                    <li><b>Web pages :</b> src/main/resources/templates</li>
+                   </ul>
+
+                   <h5>Testing:</h5>
+                   <p class="lead">I used Postman for testing REST API connections and checked wheather the data entry and 
+                    manipulation is working in table or not.
+                   </p>
+
+                  </div>
+
+
+              </div>
+            </div>
+
+          </div>
+
+      <div class="container-fluid crudbg px-2 py-3 my-3" id="scrollspyHeading2">
+
+          <div class="card">
+            <h3 class="card-header">CRUD Operations</h3>
+            <div class="card-body">
+              <p class="lead">In a Spring Boot project, CRUD operations are the foundational actions you perform on a database. 
+                These operations—Create, Read, Update, and Delete—are essential in managing persistent data,
+                 and Spring Boot offers powerful tools to handle these efficiently using Spring Data JPA and Hibernate.</p>
+              <ul class="lead">
+                <li><b>Create: </b> Adds new records to the database using methods like save().</li>
+                <li><b>Read: </b> Retrieves records from the database using methods like findAll() or findById().</li>
+                <li><b>Update: </b> Modifies existing records in the database using the save() method with updated data.</li>
+                <li><b>Delete: </b> Removes records from the database using deleteById().</li>
+              </ul>
+            </div>
+          </div>
+      </div>
+
+      <div class="container-fluid crudbg px-2 py-3 my-3 " id="scrollspyHeading3">
+
+        <div class="card">
+          <h3 class="card-header">Create</h3>
+          <div class="card-body">
+            
+            <p class="card-text lead">The POST operation allows users to add new student records to the database. 
+              Using an HTTP request, the server takes student data (name, college, roll number, qualification, year, and certificate) 
+              and stores it in the database, automatically generating and assigning a unique id for each student.</p>
+            <a href="/students/indexpost" class="btn btn-success">Check</a>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container-fluid crudbg px-2 py-3 my-3" id="scrollspyHeading4">
+
+        <div class="card">
+          <h3 class="card-header">Retrieve</h3>
+          <div class="card-body row row-col-1 gy-3">
+
+            <div class="col-12">
+            <h5 class="card-title">Retrieve By ID:</h5>
+            <p class="card-text lead">A GET operation retrieves a specific student's data by their unique ID. The server returns the details of the 
+              student corresponding to the provided ID, such as name, college, roll number, and other relevant details.</p>
+            <a href="/students/indexgetbyid" class="btn btn-success">Check</a>
+          </div>
+
+          <div class="col-12">
+
+            <h5 class="card-title">Retrieve All:</h5>
+            <p class="card-text lead">Another GET operation fetches all student records from the database. 
+              It provides a list of all students, showing their details in a formatted structure, useful for
+               displaying them on the webpage or in other applications.</p>
+               <a href="/students/indexgetall" class="btn btn-success">Check</a>
+          </div>
+          </div>
+        </div>
+      </div>
+
+
+
+      <div class="container-fluid crudbg px-2 py-3 my-3" id="scrollspyHeading5">
+
+        <div class="card">
+          <h3 class="card-header">Update:</h3>
+          <div class="card-body">
+            <p class="card-text lead">The PUT operation allows for the modification of an existing student's data.
+               By providing the student's ID and updated data (e.g., change of college or year), the system overwrites the 
+               corresponding record in the database with the new values.</p>
+            <a href="/students/indexupdate" class="btn btn-success">Check</a>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="container-fluid crudbg px-2 py-3 my-3" id="scrollspyHeading6">
+
+        <div class="card">
+          <h3 class="card-header">Delete:</h3>
+          <div class="card-body">
+            <p class="card-text lead">The DELETE operation removes a student's record from the database.
+               By providing the student's ID, the system identifies and deletes the specific record, ensuring the database remains up to date.</p>
+            <a href="/students/indexdelete" class="btn btn-success">Check</a>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+     </div>   
+
+  </body>
+</html>
